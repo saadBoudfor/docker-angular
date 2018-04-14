@@ -1,6 +1,8 @@
 FROM node:latest
 
-RUN apt-get update && apt-get install -y vim
+RUN apt-get update
+
+MAINTAINER Boudfor saad
 
 USER root
 

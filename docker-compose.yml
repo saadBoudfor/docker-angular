@@ -3,7 +3,8 @@ version: "2.1"
 services:
   node:
     build: .
+    image: sboudfor/angular-cli
     ports:
-      - 8081:4200
+      - 4200:4200
     volumes:
       - /home/saad/Projects/docker-angular/:/src/
