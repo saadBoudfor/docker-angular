@@ -15,7 +15,7 @@ services:
     ports:
       - "3308:3306"
     volumes:
-      - ./db-planner/:/var/lib/mysql/mysql
+      - ./db-planner/:/var/lib/mysql/
     environment:
        MYSQL_ROOT_PASSWORD: root
        MYSQL_DATABASE: planner

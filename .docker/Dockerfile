@@ -1,7 +1,5 @@
 FROM node:latest
 
-RUN apt-get update
-
 MAINTAINER Boudfor saad
 
 USER root
@@ -14,13 +12,9 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 EXPOSE 4200
 
-RUN npm install -g npm@4.3.0 -unsafe-perm
-RUN npm install -g @angular/cli
+RUN apt-get update && npm install -g npm@4.3.0 -unsafe-perm && npm install -g @angular/cli -unsafe-perm
 
 ADD scripts /usr/local/scripts
 
 VOLUME /src
-
-ADD  $WORKDIR ./root
-
 
