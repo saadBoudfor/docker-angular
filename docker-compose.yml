@@ -2,9 +2,27 @@ version: "2.1"
 
 services:
   node:
-    build: .
+    build: .docker/
     image: sboudfor/angular-cli
     ports:
       - 4200:4200
     volumes:
       - /home/saad/Projects/docker-angular/:/src/
+
+  mysql:
+    image: mysql
+    restart: always
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./db-planner/:/var/lib/mysql/mysql
+    environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: planner
+
+  client: 
+     image: mysql
+     depends_on:
+      - mysql
+     command: mysql -uroot -proot -hmysql planner
+
