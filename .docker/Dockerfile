@@ -17,6 +17,8 @@ EXPOSE 4200
 RUN npm install -g npm@4.3.0 -unsafe-perm
 RUN npm install -g @angular/cli
 
+ADD scripts /usr/local/scripts
+
 VOLUME /src
 
 ADD  $WORKDIR ./root
